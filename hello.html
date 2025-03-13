@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>服务对象结构图</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.1/css/jquery.orgchart.min.css">
+    <style>
+        #chart-container {
+            background: #f7f9fc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .orgchart .node {
+            background: white;
+            border: 2px solid #1890ff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 280px!important;
+        }
+        .node-title {
+            background: #1890ff;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+        }
+        .node-content {
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/orgchart/3.1.1/js/jquery.orgchart.min.js"></script>
+    <script>
+        $(function() {
+            var datascource = {
+                'name': '<div class="node-title">服务对象体系</div><div class="node-content">覆盖3类核心用户+3类生态伙伴</div>',
+                'children': [
+                    {
+                        'name': '<div class="node-title">核心用户（90%）</div><div class="node-content">■ 大一新生（60%）<br>■ 大三学生（30%）<br>■ 大专学生（创新扩展）</div>',
+                        'children': [
+                            {
+                                'name': '<div class="node-title">大一新生服务</div><div class="node-content">? 专业地图<br>? 成长导航<br>? 学分预警</div>'
+                            },
+                            {
+                                'name': '<div class="node-title">大三学生服务</div><div class="node-content">? 赛道诊断<br>? 竞争力闭环<br>? 企业直通车</div>'
+                            }
+                        ]
+                    },
+                    {
+                        'name': '<div class="node-title">辐射群体（10%）</div><div class="node-content">■ 高中毕业生<br>■ 企业校招部<br>■ 高校教管部门</div>',
+                        'children': [
+                            {
+                                'name': '<div class="node-title">高中毕业生</div><div class="node-content">? VR院校导览<br>? 专业能力测评</div>'
+                            },
+                            {
+                                'name': '<div class="node-title">企业服务</div><div class="node-content">? 人才雷达图<br>? 精准校招通道</div>'
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            $('#chart-container').orgchart({
+                data: datascource,
+                nodeContent: 'name',
+                verticalLevel: 3,
+                pan: true,
+                zoom: true
+            });
+        });
+    </script>
+</body>
+</html>
